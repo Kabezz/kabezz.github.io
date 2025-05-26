@@ -1,0 +1,399 @@
+@import url("https://nspc911.github.io/themes/vencord/RefreshedSeamlessChatBar.theme.css");
+@import url('https://abbie.github.io/discord-css/import.css');
+:root {
+    /* change padding of the bar */
+    --rscb-chat-box-padding: 8px; /* default is 8px for alignment */
+    /* Whether you want the chat to not move up *\
+    \*    and down when someone starts typing   */
+    --rscb-no-jump-chat: 0;
+     /* Whether you want the messages to clip through *\
+     \*  the gap between slowmode and typing people   */
+     --rscb-clip-chat-through-typing-bar: 0;
+
+    /* The blur radius, can be *\
+    \*   any types of length   */
+    --blrbg-blur-by: 2px;
+    /* how dim you want the bg *\
+    \*   aside from the blur   */
+    --blrbg-dimmness: 25;
+
+    --\\--compact-title-bar: false;
+    --\\--compact-input-box: true;
+    --\\--compact-context-menu: true;
+    --\\--compact-user-area: true;
+    --\\--compact-channel-categories: true;
+    --\\--compact-server-list: false;
+
+    --\\--hide-nameplates: true;
+    --\\--hide-guild-tags: false;
+    --\\--hide-profile-effects: true;
+    --\\--hide-avatar-decorations: false;
+    --\\--hide-gradient-glow-usernames: true;
+    --\\--hide-server-boost-goal: true;
+    --\\--hide-server-activity: false;
+    --\\--hide-user-activity: false;
+    --\\--hide-context-menu-quick-reactions: true;
+    --\\--hide-hover-quick-reactions: false;
+    --\\--hide-image-edit-button: true;
+    --\\--hide-gif-button: false;
+    --\\--hide-sticker-button: false;
+    --\\--hide-emoji-button: false;
+    --\\--hide-apps-button: true;
+    --\\--hide-gift-button: true;
+    --\\--hide-help-button: true;
+    --\\--hide-shop-button: true;
+    --\\--hide-nitro-button: true;
+    --\\--hide-nitro-upsells: true;
+    --\\--hide-vencord-desktop-platform-indicator: true;
+    --\\--hide-cluttery-badges: true;
+    /* ^ hides quest, hypesquad, active dev, and discriminator badges */
+
+    --\\--darker-scrollbar: true;
+    --\\--darker-hovered-message: true;
+    --\\--prevent-sidebar-resizing: false;
+    --\\--fix-minor-icon-misalignments: true;
+}
+
+/* collapse actions */
+[class^=buttonsInner_]:not(:hover)>:is(
+  [role=button]:not(div:last-of-type), [class^=separator_]
+) {
+  display: none;
+}
+
+/* vc alert */
+body:has([class^="listItem_"] div[data-dnd-name="TurboWarp & Scratch"] [class^="upperBadge_"] div:not([class*="isCurrentUserConnected_"]) svg path )
+div[class^="sidebar_"]::before {
+    content: 'IS KUBI GRINDING IN BA AGAIN?';
+    text-align: center;
+    font-weight: 500;
+    color: white;
+    padding: 12px;
+    align-self: center;
+    background-color: var(--button-danger-background);
+    width: 100%;
+}
+
+/* collapsable chat buttions */
+[class^=chat_] [class*=textArea_] {
+  margin-right: 32px;
+  +[class^=buttons_] {
+    position: absolute;
+    right: 0;
+    background-color: color-mix(in oklab, var(--chat-background-default) 0%, transparent);
+    backdrop-filter: blur(3px);
+    border-radius: 8px 0 0 8px;
+    &:hover {
+      box-shadow: 0 0 8px #0003;
+    }
+    &:not(:hover)>:not(:last-child) {
+      display: none;
+    }
+  }
+}
+
+/* colored rolls */
+.role_dfa8b6.pill_dfa8b6 {
+    position: relative;
+    background: none;
+    border: none;
+    padding-left: 28px;
+}
+.role_dfa8b6.pill_dfa8b6 > span {
+    z-index: 1;
+}
+.role_dfa8b6.pill_dfa8b6 .roleRemoveButton_dfa8b6 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    margin: 0 !important;
+}
+.role_dfa8b6.pill_dfa8b6 .roleCircle__4f569 {
+    margin: 6px 8px;
+}
+.role_dfa8b6.pill_dfa8b6 .roleCircle__4f569::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background-color: inherit;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    border-radius: var(--radius-xs);
+    filter: brightness(1.1);
+    opacity: 0.25;
+}
+
+/* Remove Nitro tenure tooltip bloat - no extra text, less laggy(?) */
+[class^="tooltipContainer_"]:has([class^="tooltipWordmarkContainer_"]) {
+    padding: initial;
+    & img, h1, h2, [class^="tooltipWordmarkContainer_"] { display: none; }
+    
+    & [class*="tooltipDescription_"] {
+        color: inherit!important;
+        font: inherit;
+        margin: inherit;
+    }
+}
+
+/* larger profiles */
+div[aria-label="User Profile Modal"] {
+  transform: scale(1.20);
+  > div[class^="root_"] {
+    max-height: 60rem;
+    > div {
+      height: 100%;
+    }
+  }
+}
+
+/* miku loading */
+.content_a2f514 {
+    display: flex;
+    flex-direction: column;
+    > .spinner_a2f514 { display: none }
+    &:before {
+        display: block;
+        height: 128px;
+        position: relative;
+        content: url(https://file.garden/Ztyn1kH-GkyOdilY/hachune%20waggle.gif);
+        image-rendering: pixelated;
+         align-content: center;
+         scale: 3.125;
+         margin-bottom: 96px;
+    }
+}
+
+/* detailed timestamp */
+span[class*="timestampInline_"] time::before {
+  content: attr(aria-label);
+  font-size: 12px;
+}
+span[class*="timestampInline_"] {
+  font-size: 0px !important;
+}
+
+/* spacing */
+.visual-refresh .scrollerInner__36d07 {
+    padding-bottom: 5px;
+}
+.visual-refresh .membersWrap_c8ffbb .membersGroup_c8ffbb {
+    padding-bottom: 25px;
+}
+.visual-refresh .button__74017,.buttonContents_e6e74f:not([class*="enabled__67645"]) {
+    transform: scale(1.25) !important;
+}
+.visual-refresh .spriteContainer__04eed {
+   transform: scale(1.1) !important;
+}
+
+/* blurry quicksearch */
+.quickswitcher_ac6cb0 {
+  background: 0 0 !important;
+  padding: 10px;
+  background-color: transparent !important;
+  backdrop-filter: blur(20px);
+  > * {
+    background: inherit !important;
+    background-color: inherit !important;
+  }
+  .scroller_ac6cb0 {
+    margin: 0;
+    border-radius: 0 0 8px 8px;
+    scrollbar-width: none;
+    padding: 4px !important;
+  }
+  .input_ac6cb0 { height: 50px }
+  .input_ac6cb0[value=""] { border-radius: 8px }
+  .input_ac6cb0:not([value=""]) { border-radius: 8px 8px 0 0 }
+  .protip_ac6cb0 { display: none }
+  .result__71961 { border-radius: 8px }
+  .content__99f8c > div:not(.result__71961):not([aria-hidden=true]) > .content__71961 {
+    height: 20px;
+    line-height: 20px;
+    > .header__71961 {
+      line-height: 20px;
+      margin-top: 0;
+      margin-bottom: 4px;
+    }
+  }
+}
+.backdrop__1a911:has(+ .layer_bc663c .quickswitcher_ac6cb0) { opacity: 0 }
+
+/* collapse pos fix */
+.containerDefault__29444 {
+  > div {
+    padding-left: 0.5em;
+
+    > div {
+      display: flex !important;
+      place-content: start !important;
+      flex-direction: row-reverse !important;
+    }
+  }
+}
+
+/* scrollable codeblocks */
+:root {
+  --codeblock-height: 200px;
+}
+.codeContainer__75297 > code {
+  max-height: var(--codeblock-height);
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+  &::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+    &::-webkit-scrollbar-track, &::-webkit-scrollbar-thumb {
+    /* visibility: hidden; */
+  }
+  &::-webkit-scrollbar-thumb {
+    background-clip: padding-box;
+    background-color: var(--scrollbar-thin-thumb);
+    border: 2px solid transparent;
+    border-radius: 4px;
+    min-height: 40px;
+  }
+  &:hover::-webkit-scrollbar-track, &:hover::-webkit-scrollbar-thumb {
+    visibility: visible;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-thin-track);
+    border: 2px solid var(--scrollbar-thin-track);
+    border-color: var(--scrollbar-thin-track);
+  }
+}
+
+/* yappin */
+.typingDots_b88801 > .ellipsis_b88801+.text_b88801 {
+  font-size: 0;
+  height: 16px;
+  >strong {
+    font-size: 12px;
+    &::after {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+    &:last-child::after {
+      content: " is yapping...";
+    }
+    &:last-child:not(:first-child)::after {
+      content: " are yapping...";
+    }
+    &:nth-last-child(2)::after {
+      content: " and "
+    }
+    &:nth-last-child(3)::after {
+      content: ", ";
+    }
+  }
+  &:not(:has(>strong))::after {
+    font-size: 12px;
+    content: "Big yap sesh goin on here...";
+  }
+}
+
+/* guild tag collapse */
+[class^="chipletContainerInner_"] > span > .unselectable__10651 {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 0;
+  will-change: max-width, margin;
+  transition: max-width 0.7s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              margin 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+[class^="chipletContainerInner_"]:hover > span > .unselectable__10651 {
+  max-width: 20ch;
+  margin-right: .3ch;
+  /* Prevents it from triggering if you just quickly mouseover :D */
+  transition-delay: 0.08s;
+}
+[class^="chipletContainerInner_"] > span > img.badge__10651 {
+  margin-right: 0;
+  transition: transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1), 
+              margin 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+[class^="chipletContainerInner_"]:hover > span > img.badge__10651 {
+  transform: rotateZ(360deg);
+  margin-right: .6ch;
+  /* Same as above transition delay */
+  transition-delay: 0.08s;
+}
+[class^="chipletContainerInner_"] {
+  position: relative;
+}
+[class^="chipletContainerInner_"]::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  pointer-events: none;
+}
+
+/* remove gradient glow in chat and user list */
+.threeColorGradient_e5de78,
+.twoColorGradient_e5de78 {
+  &.usernameGradient_e5de78 {
+    color: color-mix(in lab, var(--custom-gradient-color-1), var(--custom-gradient-color-2));
+    background: none;
+    -webkit-text-fill-color: initial;
+  }
+  &::after,
+  &.nameGlow__703b9 {
+      display: none;
+  }
+}
+
+/* reduce context menu padding */
+.layer_da8173 > .menu_c1e9c4 {
+    min-width: 0;
+    width: 171px !important;
+    .scroller_c1e9c4 {
+        /* border margin */
+        margin: -4px;
+    }
+    .separator_c1e9c4 {
+        /* separator margin */
+        margin: 1px 8px !important;
+    }
+    .wrapper_f563df {
+        /* reactions margin */
+        padding: 0px !important;
+        margin: 1px;
+    }
+    .item_c1e9c4 {
+        /* min-height is 32px as default, change value for desired look */
+        min-height: 0;
+        /* padding is 4px 8px as default, change value for desired look */
+        padding: 4px 8px;
+    }
+    .icon_f563df {
+        /* reactions size */
+        width: 18px;
+    }
+    .button_f563df {
+        /* reactions border size */
+        width: 36px;
+        height: 36px;
+        border-radius: 4px;
+    }
+    .icon_c1e9c4 {
+        /* icons size */
+        width: 18px;
+        height: 18px;
+    }
+    .iconContainer_c1e9c4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
