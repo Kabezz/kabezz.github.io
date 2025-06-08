@@ -64,7 +64,8 @@
 /* vc alert */
 body:has([class^="listItem_"] div[data-dnd-name="TurboWarp & Scratch"] [class^="upperBadge_"] div:not([class*="isCurrentUserConnected_"]) svg path )
 div[class^="sidebar_"]::before {
-    content: 'IS KUBI GRINDING IN BA AGAIN?';
+    content: 'IS KUBI DELTARUNING AGAIN?';
+    /* content: 'IS KUBI GRINDING IN BA AGAIN?'; */
     text-align: center;
     font-weight: 500;
     color: white;
