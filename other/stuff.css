@@ -1,5 +1,6 @@
 @import url("https://nspc911.github.io/themes/vencord/RefreshedSeamlessChatBar.theme.css");
 @import url('https://abbie.github.io/discord-css/import.css');
+@import url('https://chloecinders.github.io/visual-refresh-compact-title-bar/browser.css');
 :root {
     /* change padding of the bar */
     --rscb-chat-box-padding: 8px; /* default is 8px for alignment */
