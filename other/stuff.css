@@ -369,3 +369,8 @@ span[class*="timestampInline_"] {
         align-items: center;
     }
 }
+
+/* Hide video quests unless hovering */
+[poster^="https://cdn.discordapp.com/quests/"]:not(:hover) {
+    opacity: 0%;
+}
