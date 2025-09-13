@@ -63,22 +63,6 @@
   display: none;
 }
 
-/* vc alert */
-body:has([class^="listItem_"] div[data-dnd-name="TurboWarp & Scratch"] [class^="upperBadge_"] div:not([class*="isCurrentUserConnected_"]) svg path )
-div[class^="sidebar_"]::before {
-    content: "join if you want to";
-    /* content: 'IS KUBI OSUING AGAIN?'; */
-    /* content: 'IS KUBI DELTARUNING AGAIN?'; */
-    /* content: 'IS KUBI GRINDING IN BA AGAIN?'; */
-    text-align: center;
-    font-weight: 500;
-    color: white;
-    padding: 12px;
-    align-self: center;
-    background-color: var(--button-danger-background);
-    width: 100%;
-}
-
 /* collapsable chat buttions */
 [class^=chat_] [class*=textArea_] {
   margin-right: 32px;
