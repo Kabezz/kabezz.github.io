@@ -81,7 +81,7 @@
   }
 }
 
-/* colored rolls */
+/* colored roles */
 .role_dfa8b6.pill_dfa8b6 {
     position: relative;
     background: none;
@@ -165,7 +165,7 @@ span[class*="timestampInline_"] {
   font-size: 0px !important;
 }
 
-/* spacing */
+/* spacing 
 .visual-refresh .scrollerInner__36d07 {
     padding-bottom: 5px;
 }
@@ -177,7 +177,7 @@ span[class*="timestampInline_"] {
 }
 .visual-refresh .spriteContainer__04eed {
    transform: scale(1.1) !important;
-}
+} */
 
 /* collapse pos fix */
 .containerDefault__29444 {
