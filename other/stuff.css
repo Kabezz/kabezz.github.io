@@ -1,4 +1,4 @@
-@import url("https://nspc911.github.io/themes/vencord/RefreshedSeamlessChatBar.theme.css");
+/* @import url("https://nspc911.github.io/themes/vencord/RefreshedSeamlessChatBar.theme.css"); */
 @import url('https://abbie.github.io/discord-css/import.css');
 @import url('https://chloecinders.github.io/visual-refresh-compact-title-bar/browser.css');
 @import url('https://raw.githubusercontent.com/acheronx0577/Transparent-Quick-Switcher-Discord/main/Transparent%20Quick%20Switcher.css');
@@ -20,7 +20,7 @@
     --blrbg-dimmness: 25;
 
     --\\--compact-title-bar: false;
-    --\\--compact-input-box: false;
+    --\\--compact-input-box: true;
     --\\--compact-context-menu: true;
     --\\--compact-user-area: true;
     --\\--compact-channel-categories: true;
