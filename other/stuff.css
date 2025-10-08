@@ -64,35 +64,21 @@
 }
 
 /* collapsable chat buttions */
-[class^=buttonContainer] > [class^=buttons] {
-    > [class^=buttonsInner] {
-        border: unset;
-        padding: unset;
-        box-shadow: var(--shadow-low) !important;
-        background-color: var(--background-base-low);
-        border-radius: 4px;
-        > [class^=separator] { display: none; }
-        > span {
-            > [class^=hoverBarButton] {
-                padding: unset;
-                height: 32px;
-                width: 32px;
-                border-radius: unset;
-                &:hover > [class^=icon] { transform: unset; }
-            }
-            &:has(~ [class^=separator]) { display: none; }
-            &:first-of-type ,[class^=separator] + & {
-                > [class^=hoverBarButton] {
-                    border-top-left-radius: 4px;
-                    border-bottom-left-radius: 4px;
-                }
-            }
-            &:nth-last-of-type(2) > [class^=hoverBarButton] {
-                border-top-right-radius: 4px;
-                border-bottom-right-radius: 4px;
-            }
-        }
+[class^=chat_] [class*=textArea_] {
+  margin-right: 32px;
+  +[class^=buttons_] {
+    position: absolute;
+    right: 0;
+    background-color: color-mix(in oklab, var(--chat-background-default) 0%, transparent);
+    backdrop-filter: blur(3px);
+    border-radius: 8px 0 0 8px;
+    &:hover {
+      box-shadow: 0 0 8px #0003;
     }
+    &:not(:hover)>:not(:last-child) {
+      display: none;
+    }
+  }
 }
 
 /* colored roles */
